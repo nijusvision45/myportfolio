@@ -1,104 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Developer's Launch Pad - Coming Soon</title>
-    <style>
-        /* CSS is embedded here for simplicity */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f8f8;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niju Thomas George</title>
 
-        .container {
-            max-width: 600px;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  background: linear-gradient(120deg, #0f172a, #020617);
+}
 
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 4px solid #007BFF; /* Primary color border */
-        }
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10%;
+}
 
-        h1 {
-            color: #007BFF;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
+.hero h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, #38bdf8, #6366f1);
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
-        p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
+.hero p {
+  color: #cbd5f5;
+  max-width: 600px;
+}
 
-        .social-links a {
-            display: inline-block;
-            margin: 0 10px;
-            text-decoration: none;
-            color: #007BFF;
-            font-size: 1.1em;
-            padding: 8px 15px;
-            border: 1px solid #007BFF;
-            border-radius: 6px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+/* BUTTONS */
+.buttons {
+  margin-top: 25px;
+}
 
-        .social-links a:hover {
-            background-color: #007BFF;
-            color: white;
-            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.5);
-        }
+.btn {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  transition: 0.3s;
+}
 
-        /* Responsive adjustments for smaller screens */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2em;
-            }
-            .social-links a {
-                display: block;
-                margin: 10px auto;
-                width: 80%;
-            }
-        }
-    </style>
+.btn:hover {
+  background: linear-gradient(90deg, #38bdf8, #6366f1);
+}
+
+/* SECTIONS */
+section {
+  padding: 80px 10%;
+}
+
+h2 {
+  color: #38bdf8;
+}
+
+/* CARDS */
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* SKILLS */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* FORM */
+form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+form input, form textarea {
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+form button {
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #38bdf8, #6366f1);
+  color: white;
+  cursor: pointer;
+}
+
+form button:hover {
+  opacity: 0.9;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #94a3b8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 5%;
+  }
+
+  section {
+    padding: 60px 5%;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <img src="9779         pp - Copy.jpg" alt="A professional photo of the developer" class="profile-pic">
 
-        <h1>Hey! I'm learning coding!</h1>
-        <p>I am currently building this website from the ground up, applying all my new skills. I will be **back soon with the complete website**!</p>
+<!-- HERO -->
+<div class="hero">
+  <h1>Niju Thomas George</h1>
+  <p>Senior Business Analyst | CSPO | Driving digital transformation and enterprise solutions</p>
 
-        <p>In the meantime, let's connect. Feel free to reach out via these platforms:</p>
+  <div class="buttons">
+    <a href="https://www.linkedin.com/in/nijuthomasgeorge" target="_blank" class="btn">LinkedIn</a>
+    <a href="#" class="btn">Podcast</a>
+    <a href="Niju_Thomas_George_Resume.pdf" download class="btn">Download Resume</a>
+    <a href="#contact" class="btn">Contact Me</a>
+  </div>
+</div>
 
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/nijuthomasgeorge/" target="_blank">LinkedIn</a>
-            <a href="https://youtu.be/UiAm0EYN4CY?si=j0VnRwITgbH1Sem6" target="_blank">Podcast</a>
-            <a href="https://nijusvision45.github.io/myportfolio/" target="_blank">GitHub</a>
-            <a href="mailto:nijuthomas45@gmail.com">Email</a>
-            <a href="https://linktr.ee/nijuthomasgeorge" target="_blank">Linktree</a>
-        </div>
+<!-- ABOUT -->
+<section>
+  <h2>About</h2>
+  <div class="card">
+    <p>
+      Certified Scrum Product Owner with 4+ years of experience in Business Analysis,
+      Product Management, and Digital Transformation. Skilled in delivering scalable,
+      data-driven solutions and aligning cross-functional stakeholders.
+    </p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section>
+  <h2>Experience</h2>
+
+  <div class="card">
+    <h3>Senior Business Analyst — Air India</h3>
+    <p>2024 - Present</p>
+    <p>Leading enterprise transformation and product lifecycle management.</p>
+  </div>
+
+  <div class="card">
+    <h3>Business Analyst — IBS Software</h3>
+    <p>2021 - 2024</p>
+    <p>Worked on enterprise platform modernization and delivery execution.</p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <h2>Skills</h2>
+
+  <div class="skills">
+    <div class="card">
+      <h4>Business</h4>
+      <p>Agile, Scrum, Stakeholder Management</p>
     </div>
+
+    <div class="card">
+      <h4>Technical</h4>
+      <p>SQL, Power BI, Azure DevOps</p>
+    </div>
+
+    <div class="card">
+      <h4>Testing</h4>
+      <p>FAT, SAT, UAT, RCA</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+
+  <div class="card">
+    <p>Feel free to reach out:</p>
+
+    <form action="mailto:nijuthomas45@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="Name" placeholder="Your Name" required>
+      <input type="email" name="Email" placeholder="Your Email" required>
+      <textarea name="Message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Niju Thomas George
+</footer>
+
 </body>
 </html>
-
-
-
-
+``
