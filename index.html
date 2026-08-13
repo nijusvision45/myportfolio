@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niju Thomas George — Senior Business Analyst · CSPO</title>
+<meta name="description" content="Niju Thomas George — Senior Business Analyst, Certified Scrum Product Owner, building toward Product Management across SaaS and enterprise platforms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0f1c;
+    --panel:#10182b;
+    --panel-2:#161f38;
+    --gold:#e8a33d;
+    --teal:#45d9c0;
+    --text:#f2eee3;
+    --muted:#8792ac;
+    --line:rgba(242,238,227,0.12);
+    --line-strong:rgba(242,238,227,0.22);
+    --radius:14px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(69,217,192,0.08), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 90% 10%, rgba(232,163,61,0.07), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{font-family:'Space Grotesk', sans-serif;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  img{max-width:100%; display:block;}
+
+  ::selection{background:var(--gold); color:#0a0f1c;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:100;
+    backdrop-filter:blur(10px);
+    background:rgba(10,15,28,0.78);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.05rem;
+    letter-spacing:0.02em; text-decoration:none;
+  }
+  .logo-mark{
+    width:34px; height:34px; border-radius:50%;
+    border:1.5px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-size:0.65rem; font-weight:600;
+    color:var(--gold);
+  }
+  nav.links{display:flex; gap:28px; align-items:center; font-size:0.88rem;}
+  nav.links a{
+    text-decoration:none; color:var(--muted); position:relative; padding:4px 0;
+    transition:color .2s ease;
+  }
+  nav.links a:hover{color:var(--text);}
+  nav.links a.cta{
+    color:var(--bg); background:var(--gold); padding:9px 18px; border-radius:999px;
+    font-family:'IBM Plex Mono',monospace; font-size:0.75rem; font-weight:600;
+    letter-spacing:0.03em; text-transform:uppercase;
+  }
+  @media (max-width:760px){
+    nav.links{gap:14px; font-size:0.78rem;}
+    nav.links a:not(.cta):not(.cta-only){display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:76px 0 60px; position:relative;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--teal); margin-bottom:22px;
+  }
+  .eyebrow::before{content:''; width:26px; height:1px; background:var(--teal);}
+  .hero h1{
+    font-size:clamp(2.4rem, 5.6vw, 4.1rem); font-weight:700; line-height:1.05;
+    margin:0 0 22px; letter-spacing:-0.01em;
+  }
+  .hero h1 span{color:var(--gold);}
+  .hero-sub{
+    max-width:600px; color:var(--muted); font-size:1.08rem; margin-bottom:36px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px;}
+  .btn{
+    padding:13px 24px; border-radius:999px; text-decoration:none;
+    font-size:0.9rem; font-weight:600; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--gold); color:#0a0f1c;}
+  .btn-ghost{border:1px solid var(--line-strong); color:var(--text);}
+
+  /* boarding pass card */
+  .pass{
+    position:relative;
+    background:linear-gradient(135deg, var(--panel-2), var(--panel));
+    border:1px solid var(--line-strong);
+    border-radius:var(--radius);
+    display:grid; grid-template-columns:1fr auto 1fr;
+    overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(0,0,0,0.6);
+  }
+  .pass::after{
+    content:''; position:absolute; top:0; bottom:0; left:calc(66% - 1px);
+    border-left:1.5px dashed var(--line-strong);
+  }
+  .pass-notch{position:absolute; width:22px; height:22px; border-radius:50%; background:var(--bg); left:calc(66% - 11px); z-index:2;}
+  .pass-notch.top{top:-11px;} .pass-notch.bot{bottom:-11px;}
+  .pass-main{padding:30px 32px; grid-column:1;}
+  .pass-route{display:flex; align-items:center; gap:16px; margin-bottom:26px;}
+  .pass-route .code{font-family:'Space Grotesk',sans-serif; font-size:1.7rem; font-weight:700;}
+  .pass-route .arrow{flex:1; height:1px; background:var(--line-strong); position:relative; min-width:40px;}
+  .pass-route .arrow::after{content:'✈'; position:absolute; right:-2px; top:-11px; color:var(--gold); font-size:0.9rem;}
+  .pass-route .to-label{color:var(--gold);}
+  .pass-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px 12px;}
+  .pass-field .label{font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:5px;}
+  .pass-field .val{font-family:'IBM Plex Mono',monospace; font-size:0.85rem; font-weight:500;}
+  .pass-stub{grid-column:3; padding:30px 26px; display:flex; flex-direction:column; justify-content:space-between;}
+  .pass-stub .label{font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:6px;}
+  .pass-stub .val{font-family:'IBM Plex Mono',monospace; font-size:0.95rem;}
+  .pass-stub .barcode{margin-top:18px; height:34px; background:repeating-linear-gradient(90deg, var(--text) 0 2px, transparent 2px 5px, var(--text) 5px 7px, transparent 7px 12px); opacity:0.55;}
+  @media (max-width:700px){
+    .pass{grid-template-columns:1fr;}
+    .pass::after{display:none;}
+    .pass-notch{display:none;}
+    .pass-stub{grid-column:1; border-top:1px dashed var(--line-strong);}
+    .pass-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* ---------- STATS ---------- */
+  .stats{padding:50px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center;}
+  .stat-num{font-family:'Space Grotesk',sans-serif; font-size:2.4rem; font-weight:700; color:var(--gold);}
+  .stat-label{color:var(--muted); font-size:0.82rem; margin-top:4px;}
+  @media (max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr); row-gap:34px;}}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:96px 0;}
+  .sec-tag{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); margin-bottom:14px;}
+  .sec-title{font-size:clamp(1.7rem,3.4vw,2.4rem); font-weight:700; margin:0 0 18px; max-width:640px;}
+  .sec-intro{color:var(--muted); max-width:600px; margin-bottom:52px;}
+
+  /* ---------- ABOUT ---------- */
+  #about{border-top:1px solid var(--line);}
+  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:start;}
+  .about-text p{color:var(--muted); font-size:1.02rem;}
+  .about-text strong{color:var(--text);}
+  .goal-card{
+    background:var(--panel); border:1px solid var(--line-strong); border-radius:var(--radius);
+    padding:26px 28px;
+  }
+  .goal-card .sec-tag{margin-bottom:10px;}
+  .goal-card h3{margin:0 0 10px; font-size:1.15rem;}
+  .goal-card p{color:var(--muted); font-size:0.94rem; margin:0;}
+  @media (max-width:800px){.about-grid{grid-template-columns:1fr;}}
+
+  /* ---------- FLIGHT PATH (signature element) ---------- */
+  .flightpath{padding-top:10px;}
+  .fp-svg-wrap{width:100%; margin-bottom:8px;}
+  .fp-dash{stroke-dasharray:8 8; stroke-dashoffset:600; transition:stroke-dashoffset 1.8s ease;}
+  .fp-svg-wrap.in-view .fp-dash{stroke-dashoffset:0;}
+  .fp-plane{transition:offset-distance 1.8s ease;}
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-card{
+    border:1px solid var(--line); border-radius:var(--radius); background:var(--panel);
+    padding:30px 32px; margin-bottom:22px;
+  }
+  .exp-top{display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:6px;}
+  .exp-org{font-family:'Space Grotesk',sans-serif; font-size:1.3rem; font-weight:700;}
+  .exp-role{color:var(--gold); font-size:0.98rem; margin-top:4px;}
+  .exp-meta{text-align:right; font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--muted);}
+  .exp-body{margin-top:18px; overflow:hidden; max-height:0; transition:max-height .4s ease;}
+  .exp-card.open .exp-body{max-height:900px;}
+  .exp-body ul{margin:0; padding-left:20px; color:var(--muted); font-size:0.94rem;}
+  .exp-body li{margin-bottom:9px;}
+  .exp-toggle{
+    margin-top:16px; background:none; border:none; color:var(--teal); cursor:pointer;
+    font-family:'IBM Plex Mono',monospace; font-size:0.78rem; letter-spacing:0.03em;
+    display:flex; align-items:center; gap:6px; padding:0;
+  }
+  .exp-toggle .chev{transition:transform .3s ease;}
+  .exp-card.open .exp-toggle .chev{transform:rotate(180deg);}
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .skill-card{border:1px solid var(--line); border-radius:var(--radius); background:var(--panel); padding:26px;}
+  .skill-card h3{font-size:0.98rem; margin:0 0 16px; color:var(--gold); font-family:'IBM Plex Mono',monospace; letter-spacing:0.02em;}
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    border:1px solid var(--line-strong); border-radius:999px; padding:6px 13px;
+    font-size:0.78rem; color:var(--muted); font-family:'IBM Plex Mono',monospace;
+  }
+  @media (max-width:800px){.skill-groups{grid-template-columns:1fr;}}
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .cert-card{
+    border:1px solid var(--line-strong); border-radius:var(--radius); padding:22px 18px; text-align:center;
+    background:linear-gradient(160deg, var(--panel-2), var(--panel));
+  }
+  .cert-badge{
+    width:46px; height:46px; margin:0 auto 14px; border-radius:50%;
+    border:1.5px solid var(--gold); display:flex; align-items:center; justify-content:center;
+    color:var(--gold); font-family:'Space Grotesk',sans-serif; font-weight:700;
+  }
+  .cert-card h4{font-size:0.9rem; margin:0 0 4px;}
+  .cert-card p{font-size:0.76rem; color:var(--muted); margin:0; font-family:'IBM Plex Mono',monospace;}
+  @media (max-width:800px){.cert-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- PROJECTS (manifest cards) ---------- */
+  .proj-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+  .proj-card{
+    border:1px solid var(--line); border-radius:var(--radius); background:var(--panel);
+    padding:26px; position:relative;
+  }
+  .proj-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:12px;}
+  .proj-org{font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--muted); letter-spacing:0.05em; text-transform:uppercase;}
+  .status{
+    font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.05em; text-transform:uppercase;
+    padding:4px 10px; border-radius:999px; white-space:nowrap;
+  }
+  .status.ongoing{background:rgba(69,217,192,0.12); color:var(--teal); border:1px solid rgba(69,217,192,0.35);}
+  .status.done{background:rgba(232,163,61,0.12); color:var(--gold); border:1px solid rgba(232,163,61,0.35);}
+  .proj-card h4{font-size:1.05rem; margin:0 0 10px;}
+  .proj-card p{color:var(--muted); font-size:0.9rem; margin:0;}
+  @media (max-width:800px){.proj-grid{grid-template-columns:1fr;}}
+
+  /* ---------- EDUCATION + ACHIEVEMENTS ---------- */
+  .split-2{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .info-card{border:1px solid var(--line); border-radius:var(--radius); background:var(--panel); padding:28px;}
+  .info-card h3{margin:0 0 20px; font-size:1.1rem; color:var(--gold); font-family:'IBM Plex Mono',monospace;}
+  .edu-item{margin-bottom:18px;}
+  .edu-item:last-child{margin-bottom:0;}
+  .edu-item .deg{font-weight:600; font-size:0.97rem;}
+  .edu-item .school{color:var(--muted); font-size:0.86rem;}
+  .edu-item .yrs{font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--teal); margin-top:3px;}
+  .ach-list{list-style:none; margin:0; padding:0;}
+  .ach-list li{
+    padding-left:26px; position:relative; margin-bottom:14px; font-size:0.9rem; color:var(--muted);
+  }
+  .ach-list li::before{content:'★'; position:absolute; left:0; color:var(--gold); font-size:0.8rem; top:1px;}
+  @media (max-width:800px){.split-2{grid-template-columns:1fr;}}
+
+  /* ---------- CONTACT ---------- */
+  #contact{border-top:1px solid var(--line); text-align:center;}
+  #contact .sec-title{margin-left:auto; margin-right:auto;}
+  #contact .sec-intro{margin-left:auto; margin-right:auto;}
+  .contact-actions{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:10px;}
+  .contact-strip{
+    margin-top:56px; display:flex; justify-content:center; gap:36px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono',monospace; font-size:0.82rem; color:var(--muted);
+  }
+  .contact-strip a{text-decoration:none; color:var(--muted); transition:color .2s;}
+  .contact-strip a:hover{color:var(--teal);}
+
+  footer{padding:36px 0; text-align:center; color:var(--muted); font-size:0.78rem; border-top:1px solid var(--line); font-family:'IBM Plex Mono',monospace;}
+
+  /* reveal on scroll */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="logo"><span class="logo-mark">NTG</span> Niju Thomas George</a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="https://youtu.be/UiAm0EYN4CY?si=mfY4NGFBKbWFq0VA" target="_blank" rel="noopener noreferrer" class="cta-only">Podcast</a>
+      <a href="resume.pdf" download class="cta-only">Resume</a>
+      <a href="mailto:nijuthomas45@gmail.com" class="cta cta-only">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="wrap">
+      <div class="eyebrow">Kochi, Kerala, India · Open to Product roles</div>
+      <h1 class="reveal">Senior Business Analyst,<br>flying toward <span>Product Management.</span></h1>
+      <p class="hero-sub reveal">4+ years turning ambiguous requirements into shipped, adopted products across aviation, logistics and SaaS platforms — now navigating a deliberate route from BA to Product Manager.</p>
+      <div class="hero-actions reveal">
+        <a href="mailto:nijuthomas45@gmail.com" class="btn btn-primary">Let's talk →</a>
+        <a href="https://www.linkedin.com/nijuthomasgeorge/" target="_blank" rel="noopener" class="btn btn-ghost">View LinkedIn</a>
+      </div>
+
+      <div class="pass reveal">
+        <div class="pass-notch top"></div>
+        <div class="pass-notch bot"></div>
+        <div class="pass-main">
+          <div class="pass-route">
+            <div class="code">BA</div>
+            <div class="arrow"></div>
+            <div class="code to-label">PM</div>
+          </div>
+          <div class="pass-grid">
+            <div class="pass-field"><div class="label">Passenger</div><div class="val">N. T. GEORGE</div></div>
+            <div class="pass-field"><div class="label">Class</div><div class="val">SENIOR · CSPO</div></div>
+            <div class="pass-field"><div class="label">Current Base</div><div class="val">AIR INDIA</div></div>
+            <div class="pass-field"><div class="label">Origin</div><div class="val">IBS SOFTWARE</div></div>
+            <div class="pass-field"><div class="label">Experience</div><div class="val">4Y 6M</div></div>
+            <div class="pass-field"><div class="label">Status</div><div class="val">IN TRANSIT</div></div>
+          </div>
+        </div>
+        <div class="pass-stub">
+          <div>
+            <div class="label">ETA · Product Manager</div>
+            <div class="val">2031</div>
+          </div>
+          <div>
+            <div class="label">Flight</div>
+            <div class="val">NTG&nbsp;·&nbsp;2026</div>
+            <div class="barcode"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="reveal"><div class="stat-num">4+</div><div class="stat-label">Years in Business Analysis &amp; Product</div></div>
+        <div class="reveal"><div class="stat-num">2</div><div class="stat-label">Enterprise Platforms Transformed</div></div>
+        <div class="reveal"><div class="stat-num">14+</div><div class="stat-label">Engineers Coordinated on Delivery</div></div>
+        <div class="reveal"><div class="stat-num">6</div><div class="stat-label">End-to-End Products &amp; Integrations</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-tag">01 · About</div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p><strong>Certified Scrum Product Owner</strong> with a track record of end-to-end product delivery across SaaS and enterprise platforms — from requirement elicitation and roadmap definition to Go-Live and adoption. Currently at <strong>Air India</strong>, leading fit-gap analysis, UAT and executive reporting for mission-critical cargo and revenue systems; previously at <strong>IBS Software</strong>, owning product strategy and backlog across a 14-developer team.</p>
+          <p>My path has run through the operational side of product — testing governance, stakeholder alignment, change management — the exact muscles that separate a Product Manager who ships from one who just plans. The next leg of the route is ownership: ambitious to manage multiple products end-to-end in the software industry.</p>
+        </div>
+        <div class="goal-card reveal">
+          <div class="sec-tag">Flight Plan</div>
+          <h3>5-Year Destination</h3>
+          <p>Product Manager owning a portfolio of software products — setting roadmap, prioritising ruthlessly, and being accountable for outcomes across multiple products at once, not just one release at a time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE / FLIGHT PATH -->
+  <section id="experience" style="border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-tag">02 · Career Route</div>
+      <h2 class="sec-title">Two stops so far. Product Manager is the next waypoint.</h2>
+      <p class="sec-intro">Each role added a different instrument to the panel — delivery discipline at IBS Software, executive-level ownership at Air India.</p>
+
+      <div class="flightpath reveal">
+        <div class="fp-svg-wrap" id="fpWrap">
+          <svg viewBox="0 0 1000 140" width="100%" height="140" preserveAspectRatio="xMidYMid meet">
+            <line x1="60" y1="70" x2="940" y2="70" stroke="var(--line-strong)" stroke-width="1.5" class="fp-dash" id="fpLine"/>
+            <circle cx="90" cy="70" r="7" fill="#161f38" stroke="var(--teal)" stroke-width="2"/>
+            <text x="90" y="105" text-anchor="middle" fill="#8792ac" font-family="IBM Plex Mono, monospace" font-size="12">IBS SOFTWARE</text>
+            <text x="90" y="40" text-anchor="middle" fill="#f2eee3" font-family="IBM Plex Mono, monospace" font-size="11">2021</text>
+
+            <circle cx="500" cy="70" r="7" fill="#161f38" stroke="var(--teal)" stroke-width="2"/>
+            <text x="500" y="105" text-anchor="middle" fill="#8792ac" font-family="IBM Plex Mono, monospace" font-size="12">AIR INDIA</text>
+            <text x="500" y="40" text-anchor="middle" fill="#f2eee3" font-family="IBM Plex Mono, monospace" font-size="11">2024</text>
+
+            <circle cx="920" cy="70" r="8" fill="#0a0f1c" stroke="var(--gold)" stroke-width="2.5"/>
+            <text x="920" y="105" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="12">PRODUCT MGR</text>
+            <text x="920" y="40" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="11">2031</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="exp-card open reveal">
+        <div class="exp-top">
+          <div>
+            <div class="exp-org">Air India</div>
+            <div class="exp-role">Senior Business Analyst</div>
+          </div>
+          <div class="exp-meta">Feb 2024 — Present<br>2 yrs 4 mo · Kochi/Remote</div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li>Led end-to-end analysis and transformation of a mission-critical enterprise system, identifying process gaps and defining optimised future-state processes.</li>
+            <li>Supporting implementation of a Revenue Management system — owning product scope, stakeholder alignment and delivery timelines.</li>
+            <li>Ran comprehensive Fit-Gap Analysis in Confluence to align system requirements with business goals.</li>
+            <li>Coordinated Factory Acceptance Testing (FAT) and System Acceptance Testing (SAT) via Azure DevOps across cross-functional teams.</li>
+            <li>Facilitated User Acceptance Testing (UAT) and Go-Live operations, with real-time change management during legacy-to-new-system cutover.</li>
+            <li>Designed executive-level dashboards and operational reports enabling data-driven decisions for C-suite stakeholders.</li>
+            <li>Drove organisational change management and end-user adoption through training programs and documentation.</li>
+          </ul>
+        </div>
+        <button class="exp-toggle" onclick="toggleExp(this)">Show less <span class="chev">▾</span></button>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-top">
+          <div>
+            <div class="exp-org">IBS Software</div>
+            <div class="exp-role">Business Analyst</div>
+          </div>
+          <div class="exp-meta">Dec 2021 — Feb 2024<br>2 yrs 2 mo</div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li>Owned product strategy — defining roadmap, prioritising backlog, and driving product vision across a 14+ developer team (frontend &amp; backend).</li>
+            <li>Managed the full product lifecycle: requirement elicitation, user story creation, sprint planning and feature delivery using agile frameworks.</li>
+            <li>Conducted impact and root cause analysis for defects; authored detailed BRDs and functional specifications.</li>
+            <li>Led testing governance across Factory Acceptance Testing, System Testing and User Acceptance Testing.</li>
+            <li>Drove product improvements through stakeholder communication, product review presentations and feedback-driven iteration.</li>
+            <li>Built user-adoption materials — manuals, training documentation and knowledge base articles.</li>
+          </ul>
+        </div>
+        <button class="exp-toggle" onclick="toggleExp(this)">Read more <span class="chev">▾</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" style="border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-tag">03 · Manifest</div>
+      <h2 class="sec-title">Business projects on the log</h2>
+      <p class="sec-intro">Six deliveries spanning automation, integration and platform modernisation across cargo and logistics operations.</p>
+
+      <div class="proj-grid">
+        <div class="proj-card reveal">
+          <div class="proj-top"><span class="proj-org">Air India · Ongoing</span><span class="status ongoing">In Flight</span></div>
+          <h4>AI-Driven Document Automation</h4>
+          <p>ML-based document intelligence that extracts, validates and reconciles data from high-volume GHA invoices and AWBs, integrated with the cargo management system, SAP and third-party vendors — cutting manual effort and billing errors.</p>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-top"><span class="proj-org">Air India · Ongoing</span><span class="status ongoing">In Flight</span></div>
+          <h4>Data Warehouse Reporting &amp; Dashboards</h4>
+          <p>Centralised, role-based dashboard platform aggregating the Cargo Management System and enterprise data warehouse for real-time operational and financial KPI visibility.</p>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-top"><span class="proj-org">Air India · Ongoing</span><span class="status ongoing">In Flight</span></div>
+          <h4>Revenue Management Platform Integration</h4>
+          <p>Connecting Air India's pricing products (RTS Velocity, Accelerate) with the iCargo platform via API and SFTP — governing end-to-end demand, pricing and booking data flows.</p>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-top"><span class="proj-org">Air India · ~1.5 yrs</span><span class="status done">Landed</span></div>
+          <h4>ERP System Modernization</h4>
+          <p>Led implementation of next-gen cargo platform iCargo, replacing legacy Unisys CMS and automating sales, operations, revenue accounting, mail and customer servicing.</p>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-top"><span class="proj-org">IBS Software · ~1.5 yrs</span><span class="status done">Landed</span></div>
+          <h4>Logistics Platform Implementation — DHL</h4>
+          <p>Product consultant bridging DHL operations and engineering teams on the iCargo Neo rollout — requirement clarification, solution design and stakeholder-aligned adoption.</p>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-top"><span class="proj-org">IBS Software · ~2 yrs</span><span class="status done">Landed</span></div>
+          <h4>Neo Platform Transformation</h4>
+          <p>Modernised key business modules from legacy to Neo — led requirement analysis and backlog prioritisation with a 14-member team for incremental, stable releases.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-tag">04 · Instrument Panel</div>
+      <h2 class="sec-title">Skills &amp; tools</h2>
+      <div class="skill-groups">
+        <div class="skill-card reveal">
+          <h3>BUSINESS ANALYSIS &amp; PRODUCT</h3>
+          <div class="chips">
+            <span class="chip">Requirement Elicitation</span>
+            <span class="chip">Roadmap &amp; Backlog</span>
+            <span class="chip">Stakeholder Mgmt</span>
+            <span class="chip">Process Mapping</span>
+            <span class="chip">Change Management</span>
+            <span class="chip">Fit-Gap Analysis</span>
+            <span class="chip">Agile &amp; Scrum</span>
+            <span class="chip">User Story Writing</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3>TOOLS &amp; TECHNOLOGY</h3>
+          <div class="chips">
+            <span class="chip">JIRA</span>
+            <span class="chip">Confluence</span>
+            <span class="chip">Azure DevOps</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">Azure Databricks</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Figma</span>
+            <span class="chip">Excel / PPT</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3>QUALITY &amp; TESTING</h3>
+          <div class="chips">
+            <span class="chip">FAT</span>
+            <span class="chip">SAT</span>
+            <span class="chip">UAT</span>
+            <span class="chip">Root Cause Analysis</span>
+            <span class="chip">Defect Management</span>
+            <span class="chip">QA Governance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" style="border-top:1px solid var(--line); padding-top:80px;">
+    <div class="wrap">
+      <div class="sec-tag">05 · Clearances</div>
+      <h2 class="sec-title">Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert-card reveal"><div class="cert-badge">CS</div><h4>CSPO</h4><p>Scrum Alliance</p></div>
+        <div class="cert-card reveal"><div class="cert-badge">SM</div><h4>Agile Scrum Master</h4><p>Simplilearn</p></div>
+        <div class="cert-card reveal"><div class="cert-badge">BI</div><h4>Power BI Dashboards</h4><p>LinkedIn Learning</p></div>
+        <div class="cert-card reveal"><div class="cert-badge">SQ</div><h4>SQL</h4><p>Simplilearn</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION + ACHIEVEMENTS -->
+  <section style="border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-tag">06 · Logbook</div>
+      <h2 class="sec-title">Education &amp; achievements</h2>
+      <div class="split-2">
+        <div class="info-card reveal">
+          <h3>EDUCATION</h3>
+          <div class="edu-item">
+            <div class="deg">MBA — Marketing &amp; HR</div>
+            <div class="school">Acharya Bangalore B School</div>
+            <div class="yrs">2019 — 2021</div>
+          </div>
+          <div class="edu-item">
+            <div class="deg">B.Tech — Mechanical Engineering</div>
+            <div class="school">Musaliar College of Engineering and Tech</div>
+            <div class="yrs">2015 — 2019</div>
+          </div>
+        </div>
+        <div class="info-card reveal">
+          <h3>ACHIEVEMENTS</h3>
+          <ul class="ach-list">
+            <li>Awarded "AI High Flyer" for digitisation and transformation initiatives at Air India.</li>
+            <li>Awarded "Star of the Month" at IBS Software for improving ERP system performance.</li>
+            <li>Recognised as "Team Champ" for leading 14 developers to deliver a complex module ahead of deadline.</li>
+            <li>Led the mission-critical enterprise system transformation at Air India, improving process efficiency.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-tag" style="justify-content:center; display:flex;">07 · Final Boarding</div>
+      <h2 class="sec-title">Let's build the next product together.</h2>
+      <p class="sec-intro">Open to Product Manager and Senior Business Analyst roles in SaaS and enterprise software. Based in Kochi, open to remote.</p>
+      <div class="contact-actions">
+        <a href="mailto:nijuthomas45@gmail.com" class="btn btn-primary">Email Me</a>
+        <a href="https://www.linkedin.com/nijuthomasgeorge/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      </div>
+      <div class="contact-strip">
+        <a href="mailto:nijuthomas45@gmail.com">nijuthomas45@gmail.com</a>
+        <a href="tel:+919947890623">+91 99478 90623</a>
+        <a href="https://www.linkedin.com/nijuthomasgeorge/" target="_blank" rel="noopener">linkedin.com/nijuthomasgeorge</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">NIJU THOMAS GEORGE · KOCHI, KERALA · © <span id="yr"></span></div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  function toggleExp(btn){
+    const card = btn.closest('.exp-card');
+    card.classList.toggle('open');
+    btn.firstChild.textContent = card.classList.contains('open') ? 'Show less ' : 'Read more ';
+  }
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in-view'); }
+    });
+  }, {threshold:0.15});
+
+  document.querySelectorAll('.reveal, #fpWrap').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
